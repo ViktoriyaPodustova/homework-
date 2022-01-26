@@ -1,12 +1,6 @@
 package Homework3;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class HomeWork3 {
-
-    public static Scanner scanner = new Scanner(System.in);
-    public static Random random = new Random();
 
     public static void main (String[] args) {
         int [] array1 = {1,0,0,1,1,1,0,0,1};
