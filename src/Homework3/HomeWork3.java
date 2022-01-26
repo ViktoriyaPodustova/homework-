@@ -112,7 +112,7 @@ public class HomeWork3 {
     }
     //_________________________________________________
     public static int minNumber(int[] array6){
-        int min=array6[1];
+        int min=array6[0];
         for(int i=0; i< array6.length; i++){
          if (array6[i]<min){
              min=array6[i];
@@ -121,7 +121,7 @@ public class HomeWork3 {
         return min;
     }
     public static int maxNumber(int[] array6){
-        int max=array6[1];
+        int max=array6[0];
         for(int i=0; i< array6.length; i++){
             if (array6[i]>max){
                 max=array6[i];
