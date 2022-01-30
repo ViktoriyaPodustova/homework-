@@ -16,9 +16,10 @@ public class HomeWork4 {
     public static Random random = new Random();
 
     public static void main(String[] args) {
-        createField();
-        showField();
+        do {createField();
+        } while ((fieldWidth < 4)); // если нужен универсальный способ, то 4 заменить на 3
 
+        showField();
         while(true) {
             stepPlayerOne();
             showField();
@@ -52,8 +53,11 @@ public class HomeWork4 {
     }
 
     public static void createField() {
-        fieldWidth = inputUserValue("Enter size field");
+        fieldWidth = inputUserValue("Enter size field (from 4)"); //для конкретной программы, где число победных ходов 4. Если нужен универсальный способ, то 4 заменить на 3
         fieldHeight = fieldWidth;
+        if (fieldWidth < 4) { // если нужен универсальный способ, то 4 заменить на 3
+            System.out.println("Field size cannot be less than 4x4. Enter size field again."); // если нужен универсальный способ, то 4 заменить на 3
+        }
         field = new char[fieldHeight][fieldWidth];
 
         for (int y = 0; y < fieldHeight; y++) {
@@ -81,6 +85,9 @@ public class HomeWork4 {
         do {
             x = inputUserValue("Enter your X-coordinate") - 1;
             y = inputUserValue("Enter your Y-coordinate") - 1;
+            if (!checkStepPlayer(y, x) || !checkCellFree(y, x)){
+                System.out.println("Try again (the cell is occupied or out of bounds)");
+            }
         } while (!checkStepPlayer(y, x) || !checkCellFree(y, x));
 
         field[y][x] = playerOne;
